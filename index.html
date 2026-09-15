@@ -20,29 +20,22 @@
     padding:36px 16px 40px;
   }
 
-  /* 상단 타이포 영역 (포스터 나오면 이 블록을 이미지로 교체) */
+  /* 포스터 영역 */
   .hero{
     text-align:center;
-    padding:26px 10px 34px;
+    padding:0 10px 20px;
   }
-  .hero .eyebrow{
-    color:#1B1B18;
-    font-weight:700;
-    font-size:18px;
-    letter-spacing:2px;
-    margin-bottom:12px;
-    opacity:0.8;
-  }
-  .hero h1{
-    color:#1B1B18;
-    font-weight:400;
-    font-size:clamp(52px, 15vw, 72px);
-    letter-spacing:8px;
-    -webkit-text-stroke:1.5px #1B1B18;
+  .hero img{
+    width:100%;
+    max-width:420px;
+    border-radius:18px;
+    display:block;
+    margin:0 auto;
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
   }
   .hero .dday{
     display:inline-block;
-    margin-top:18px;
+    margin-top:20px;
     background:#1B1B18;
     color:#F7CE68;
     font-weight:700;
@@ -59,6 +52,7 @@
     padding:38px 26px 30px;
     text-align:center;
     color:#fff;
+    margin-top:22px;
   }
   .card .emoji{
     font-size:26px;
@@ -66,34 +60,21 @@
   }
   .card h2{
     color:#F5C242;
-    font-weight:900;
+    font-weight:700;
     font-size:20px;
     line-height:1.6;
     margin-bottom:12px;
-  }
-  .card p.sub{
-    color:#fff;
-    font-size:14px;
-    line-height:1.7;
-    opacity:0.85;
-    margin-bottom:18px;
   }
   .card p.info{
     color:#fff;
     font-size:14.5px;
     line-height:1.8;
     opacity:0.92;
-    margin-bottom:6px;
-  }
-  .card p.info-note{
-    color:#fff;
-    font-size:12px;
-    opacity:0.55;
     margin-bottom:18px;
   }
   .card p.closing{
     color:#F5C242;
-    font-weight:900;
+    font-weight:700;
     font-size:16px;
     margin-bottom:26px;
   }
@@ -131,10 +112,8 @@
 
 <div class="wrap">
 
-  <!-- 공식 포스터가 나오면 아래 .hero 블록 전체를 포스터 이미지(<img>)로 교체하세요 -->
   <div class="hero">
-    <div class="eyebrow">제3회 성북거리문화축제</div>
-    <h1>다다페스타</h1>
+    <img src="poster.png" alt="제3회 성북거리문화축제 다다페스타 포스터">
     <div class="dday" id="ddayBadge">D-day 계산 중...</div>
   </div>
 
@@ -143,7 +122,7 @@
     <h2>다다페스타가<br>여러분을 찾아갑니다</h2>
     <p class="info">
       2026. 10. 31.(토) 11:00 ~ 17:00<br>
-      간대어린이공원 일대(장월로37길)에서 열립니다
+      장월로37길(꿈의숲아이파크~래미안장위퍼스트하이 사이길)에서 열립니다
     </p>
     <p class="closing">다 함께 만나요! 🙌</p>
 
@@ -158,7 +137,7 @@
 
   <footer>
     제3회 성북거리문화축제 다다페스타<br>
-    2026. 10. 31.(토) 간대어린이공원 일대(장월로37길)<br>
+    2026. 10. 31.(토) 장월로37길 일대<br>
     주최/주관 성북구·성북문화재단
   </footer>
 
