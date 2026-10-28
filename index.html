@@ -279,6 +279,40 @@
     text-decoration:none; font-weight:700; font-size:14px;
   }
   footer .credit{font-size:12px; opacity:0.65; line-height:1.8;}
+
+  /* MAP */
+  .mapsec{background:var(--cream); text-align:center;}
+  .mapsec .lead{margin-bottom:26px;}
+  .map-wrap{max-width:400px; margin:0 auto;}
+  .board,.legend{text-align:center;}
+  .board{background:#FFE83A; border:2px solid var(--ink); border-radius:18px; padding:14px 0; box-shadow:6px 6px 0 rgba(27,27,24,0.15);}
+  .board .row{display:grid; grid-template-columns:1fr 2.2fr 1fr; align-items:center; gap:4px; padding:4px 0; position:relative;}
+  .board .row:before{content:""; position:absolute; left:25%; right:25%; top:0; bottom:0; background:var(--white); z-index:0;}
+  .board .row>*{position:relative; z-index:1;}
+  .lm{font-size:9.5px; line-height:1.3; color:var(--ink); text-align:center; padding:0 3px; word-break:keep-all;}
+  .lm em{font-style:normal; display:inline-block; background:var(--white); border:1px solid var(--ink); border-radius:50px; font-weight:700; font-size:8.5px; padding:0 5px; margin-right:2px;}
+  .zone-static{font-weight:700; font-size:13px; padding:12px 0;} .zone-static small{display:block; font-weight:400; font-size:10px; margin-top:2px;}
+  .zone{display:block; width:100%; border:2px solid var(--ink); border-radius:8px; padding:8px 4px 9px; font-family:inherit; color:var(--ink); cursor:pointer; margin:2px 0; transition:transform .15s, box-shadow .15s;}
+  .zone:hover,.zone:focus-visible{transform:translateY(-2px); box-shadow:0 4px 0 var(--ink); outline:none;}
+  .zone.active{box-shadow:0 0 0 3px var(--orange-deep);}
+  .zone b{display:block; font-size:11.5px; margin-bottom:5px;}
+  .zone.food{background:#F9B5CD;} .zone.kids{background:#A5DB8B;} .zone.karts{background:#FFF4A8;} .zone.hand{background:#F9B86B;} .zone.land{background:#A9BCE4;} .zone.local{background:#C6A7DC;}
+  .zone .dots{display:flex; flex-wrap:wrap; justify-content:center; gap:3px;}
+  .dot{font-style:normal; font-size:8.5px; font-weight:700; width:17px; height:17px; border-radius:50%; border:1.5px solid var(--ink); display:inline-flex; align-items:center; justify-content:center; background:var(--white);}
+  .dot.p{background:#F9B5CD;} .dot.y{background:#FFE83A;} .dot.o{background:#F2A93C;} .dot.b{background:#4A7FC7; color:#fff;} .dot.r{background:#E8402C; color:#fff;} .dot.v{background:#8B5FBF; color:#fff;}
+  .zone .two{display:flex; justify-content:space-around; gap:4px; font-size:10px; text-decoration:none;}
+  .zone .two u{text-decoration:none; display:flex; flex-wrap:wrap; justify-content:center; gap:3px; width:46%;}
+  .zone.kids .two u{width:auto;}
+  .pair{display:grid; grid-template-columns:1fr 1fr; gap:6px;} .pair .zone{height:100%;}
+  .pills{display:flex; justify-content:center; gap:4px; flex-wrap:wrap; padding:4px 0;} .pills span{background:var(--ink); color:#fff; font-size:9.5px; border-radius:50px; padding:3px 7px;}
+  .stage{padding:6px 0 4px; display:flex; flex-direction:column; gap:3px; align-items:center;} .stage small{font-size:10px;} .stage b{display:block; width:100%; background:var(--ink); color:#fff; font-size:13px; padding:12px 0; border-radius:4px;} .stage i{font-style:normal; font-size:9px; background:var(--ink); color:#fff; border-radius:50px; padding:1px 8px;}
+  .legend{font-size:10.5px; color:#6b6558; margin-top:12px; line-height:1.6;}
+  .map-detail{max-width:560px; margin:22px auto 0; text-align:left; background:var(--white); border:2px solid var(--ink); border-radius:18px; padding:20px 20px 12px; box-shadow:6px 6px 0 rgba(27,27,24,0.15);}
+  .map-detail h3{font-size:17px; margin-bottom:4px;} .map-detail .md{font-size:13px; color:#5c5648; margin-bottom:10px;}
+  .map-detail ul{list-style:none; padding:0; margin:0;} .map-detail li{display:flex; gap:10px; padding:9px 0; border-top:1px dashed #cfc7b2; font-size:13px; align-items:flex-start;}
+  .map-detail li .dot{flex:none; margin-top:1px;} .map-detail li b{display:block;} .map-detail li span{color:#6b6558; font-size:12.5px;}
+  .map-detail .mn{font-size:12px; color:var(--orange-deep); padding:8px 0 4px; border-top:1px dashed #cfc7b2;}
+  @media(min-width:900px){ .mapsec .container{display:grid; grid-template-columns:400px 1fr; gap:36px; text-align:left;} .mapsec .section-label,.mapsec h2,.mapsec .lead{grid-column:1 / -1; text-align:center; justify-self:center;} .map-detail{margin:0; max-width:none; align-self:start;} }
 </style>
 </head>
 <body>
@@ -290,6 +324,7 @@
       <li><a href="#about">소개</a></li>
       <li><a href="#program">프로그램</a></li>
       <li><a href="#schedule">공연시간표</a></li>
+      <li><a href="#map">배치도</a></li>
       <li><a href="#location">오시는길</a></li>
       <li><a href="#contact">문의</a></li>
     </ul>
@@ -347,7 +382,7 @@
       <div class="prog-card">
         <div class="tag">FOOD</div>
         <h3>다다푸드마켓</h3>
-        <p>분식(떡볶이·순대·어묵·튀김), 츄러스, 소떡, 옛날핫도그, 닭강정, 탕수육, 타코야끼, 닭꼬치까지 — 다양한 음식과 디저트가 함께하는 푸드마켓. 다회용기를 쓰고, 다 드신 뒤엔 가까운 반납함에 돌려주세요.</p>
+        <p>분식(떡볶이·순대·어묵·튀김), 츄러스, 소떡, 옛날핫도그, 닭강정, 탕수육, 타코야끼, 회오리감자, 닭꼬치까지 — 다양한 음식과 디저트가 함께하는 푸드마켓. 다회용기를 쓰고, 다 드신 뒤엔 가까운 반납함에 돌려주세요.</p>
       </div>
       <div class="prog-card">
         <div class="tag">ART</div>
@@ -408,7 +443,7 @@
         <div class="stage-item"><div class="time">10:30</div><div class="what"><b>Play dance!</b><span>서상현×염한선×프로젝트 못 · 이동형 케이팝 댄스</span></div></div>
         <div class="stage-item"><div class="time">11:00</div><div class="what"><b>개막식</b></div></div>
         <div class="stage-item"><div class="time">11:30</div><div class="what"><b>여행스케치</b><span>포크 그룹 · 개막공연</span></div></div>
-        <div class="stage-item"><div class="time">13:30</div><div class="what"><b>Mad dream</b><span>댄스공연 · Mad crew</span></div></div>
+        <div class="stage-item"><div class="time">13:30</div><div class="what"><b>Mad crew</b><span>댄스공연 'Mad dream'</span></div></div>
         <div class="stage-item"><div class="time">14:30</div><div class="what"><b>토케토리</b><span>월드뮤직 · 기타/보컬</span></div></div>
         <div class="stage-item"><div class="time">15:30</div><div class="what"><b>새비</b><span>싱어송라이터 · 기타/보컬</span></div></div>
         <div class="stage-item"><div class="time">16:30</div><div class="what"><b>중식이</b><span>밴드 공연 · 마지막 무대</span></div></div>
@@ -435,7 +470,7 @@
       <div class="guide-card">
         <div class="num">1</div>
         <h4>다 먹은 그릇은 반납!</h4>
-        <p>다회용기 반납처에 돌려주세요</p>
+        <p>다회용기는 반납함에 돌려주세요</p>
       </div>
       <div class="guide-card">
         <div class="num">2</div>
@@ -482,6 +517,28 @@
   </div>
 </section>
 
+<section class="mapsec reveal" id="map">
+  <div class="container">
+    <span class="section-label">MAP</span>
+    <h2>다다페스타 배치도</h2>
+    <p class="lead">구역을 누르면 부스 목록이 나와요</p>
+    <div class="map-wrap">
+      <div class="board" id="board">
+        <div class="row"><span class="lm">꿈의숲아이파크</span><div class="zone-static">거리공연<small>🛋 쉼터</small></div><span class="lm r">세븐일레븐<br>베스킨라빈스</span></div>
+        <div class="row"><span class="lm">김가네김밥</span><button class="zone food" data-z="food"><b>다다푸드마켓</b><span class="dots"><i class="dot p">1</i><i class="dot p">2</i><i class="dot p">3</i><i class="dot p">4</i><i class="dot p">5</i><i class="dot p">6</i></span></button><span class="lm r"><em>WC</em></span></div>
+        <div class="row"><span class="lm"><em>WC</em></span><button class="zone kids" data-z="kids"><b>다다어린이마켓</b><span class="two"><u>10팀</u><u>10팀</u></span></button><span class="lm r"><em>WC</em></span></div>
+        <div class="row"><span class="lm"></span><div class="pair"><button class="zone karts" data-z="karts"><b>K-ARTS</b><span class="dots"><i class="dot y">17</i><i class="dot y">18</i><i class="dot y">19</i><i class="dot y">20</i><i class="dot y">21</i><i class="dot y">22</i><i class="dot y">23</i><i class="dot y">24</i></span></button><button class="zone hand" data-z="hand"><b>핸드마켓</b><span class="dots"><i class="dot o">7</i><i class="dot o">8</i><i class="dot o">9</i><i class="dot o">10</i><i class="dot o">11</i><i class="dot o">12</i><i class="dot o">13</i><i class="dot o">14</i><i class="dot o">15</i><i class="dot o">16</i></span></button></div><span class="lm r"></span></div>
+        <div class="row"><span class="lm"><em>WC</em> 메가MGC커피</span><button class="zone land" data-z="land"><b>다다랜드 · 성북축제학교</b><span class="dots"><i class="dot b">A</i><i class="dot b">B</i><i class="dot b">C</i><i class="dot r">D</i></span></button><span class="lm r"><em>WC</em> 우지커피</span></div>
+        <div class="row"><span class="lm"></span><div class="pills"><span>🚨 경찰·소방</span><span>❗ 운영 부스</span></div><span class="lm r"></span></div>
+        <div class="row"><span class="lm">꿈의숲아이파크 후문</span><button class="zone local" data-z="local"><b>로컬인다다</b><span class="two"><u><i class="dot v">30</i><i class="dot v">31</i><i class="dot v">32</i><i class="dot v">33</i><i class="dot v">34</i><i class="dot v">35</i></u><u><i class="dot v">25</i><i class="dot v">26</i><i class="dot v">27</i><i class="dot v">28</i><i class="dot v">29</i></u></span></button><span class="lm r">래미안장위퍼스트하이 정문</span></div>
+        <div class="row"><span class="lm"><em>WC</em> 간대어린이공원</span><div class="stage"><small>관객석</small><b>메인무대</b><i>➕ 응급</i></div><span class="lm r"></span></div>
+      </div>
+      <div class="legend">WC 화장실 · 🚨 경찰·소방 · ❗ 운영 부스(안내·이벤트) · ➕ 응급 · 🥣 반납함 · 🗑 분리수거함</div>
+    </div>
+    <div class="map-detail" id="mapDetail" aria-live="polite"></div>
+  </div>
+</section>
+
 <section class="location reveal" id="location">
   <div class="container">
     <span class="section-label">LOCATION</span>
@@ -491,9 +548,9 @@
       <div class="pin">📍</div>
       <p>2026. 10. 31.(토) 11:00 ~ 17:00</p>
       <p>행사 구간은 차량이 통제되니 도보나 대중교통을 이용해 주세요</p>
-      <a href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EC%9E%A5%EC%9C%84%EB%89%B4%ED%83%80%EC%9A%B4%EC%A0%90" target="_blank" rel="noopener">네이버 지도로 보기</a>
+      <a href="https://map.naver.com/p/search/%EA%B0%84%EB%8C%80%EC%96%B4%EB%A6%B0%EC%9D%B4%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">네이버 지도로 보기</a>
     </div>
-    <p class="note">※ 지도 검색 시 '스타벅스 장위뉴타운점'을 기준으로 찾아오시면 행사 구간 입구에 도착합니다</p>
+    <p class="note">※ 지도 검색 시 '간대어린이공원'을 기준으로 찾아오시면 행사 구간(메인무대 쪽)에 도착합니다</p>
     <div class="city-row">
       <img class="c1" src="img/bld-house.png" alt="">
       <img class="c2" src="img/bld-small.png" alt="">
@@ -518,7 +575,7 @@
   <img src="wordmark.png" alt="다다페스타" style="width:220px; margin:0 auto 20px;">
   <h2>문의 및 소식</h2>
   <div class="links">
-    <a href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EC%9E%A5%EC%9C%84%EB%89%B4%ED%83%80%EC%9A%B4%EC%A0%90" target="_blank" rel="noopener">📍 오시는 길</a>
+    <a href="https://map.naver.com/p/search/%EA%B0%84%EB%8C%80%EC%96%B4%EB%A6%B0%EC%9D%B4%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">📍 오시는 길</a>
     <a href="https://www.instagram.com/dada_festa/" target="_blank" rel="noopener">📷 인스타그램</a>
     <a href="mailto:doldol.art2024@gmail.com">✉ 문의하기</a>
   </div>
@@ -547,6 +604,23 @@
     });
   }, {threshold:0.1});
   els.forEach(el=>io.observe(el));
+
+  (function(){
+    var Z={"food": {"t": "다다푸드마켓", "d": "다양한 음식과 디저트가 함께하는 푸드마켓", "n": "다회용기로 받으셨다면, 다 드신 뒤 가까운 반납함에 돌려주세요!", "i": [["1", "맘스타", "분식 (떡볶이, 순대, 어묵, 튀김 등)"], ["2", "라라", "츄러스, 소떡, 옛날핫도그"], ["3", "하하푸드", "닭강정"], ["4", "파인탕스", "탕수육"], ["5", "오아시스", "타코야끼, 회오리감자"], ["6", "페스타컴퍼니", "닭꼬치"]]}, "kids": {"t": "다다어린이마켓", "d": "지역 어린이 20팀이 직접 참여해 판매하는 어린이 마켓", "n": "", "i": []}, "hand": {"t": "다다핸드마켓", "d": "우리동네 이웃 가게들이 함께하는 수공예 마켓", "n": "", "i": [["7", "하이헤나", "핸드메이드 헤나"], ["8", "드레무아", "핸드메이드 소품"], ["9", "한나", "악세사리, 소품"], ["10", "폴리쉬위즈덤", "패브릭 소품"], ["11", "정스아틀리에", "페이퍼플라워"], ["12", "레브드봉", "키즈 의류, 소품"], ["13", "다소공방", "천연자개 소품"], ["14", "나비뜰공방", "패브릭 악세사리"], ["15", "다미다미", "향기 화산석 화분"], ["16", "마누알레", "원목 리빙 소품"]]}, "karts": {"t": "K-ARTS MARKET", "d": "[다다페스타 × 한국예술종합학교] 청년 작가들의 창작물을 만나보아요!", "n": "", "i": [["17", "정동균", "도자"], ["18", "최서우", "도자"], ["19", "최아미", "유리"], ["20", "이규비", "유리"], ["21", "김슬아", "유리"], ["22", "김하연", "복합재료"], ["23", "양시내", "복합재료"], ["24", "최종운", "복합재료"]]}, "land": {"t": "다다랜드 · 성북축제학교", "d": "성북축제학교 세 팀이 직접 운영하는 탐정 체험 존", "n": "", "i": [["A", "동네방네 탐정단", "성북구 지도를 따라 숨겨진 단서를 찾고, 사라진 마을 이름을 되찾아 보자!"], ["B", "보물열쇠 탐정단", "성북구에 숨겨진 작가들의 보물을 찾아라!"], ["C", "콧물탐정단", "코를 킁킁! 단서 냄새를 맡아 수수께끼를 끝까지 쫓는 탐정팀의 시작과 끝을 함께해요!"], ["D", "흔들흔들, 지진 대피 체험·교육", "옆 부스에서 만나요 · 성북소방서 운영"]]}, "local": {"t": "로컬인다다", "d": "우리 동네에서 활동하는 기관·단체·주민모임이 직접 소개하는 이야기", "n": "", "i": [["25", "놀러오쉼! 누림이네 초록아지트", "장위청소년문화누림센터의 재활용캔 다육이심기 체험과 센터 홍보 이벤트"], ["26", "(사)서울패션섬유봉제협회", "사업 홍보 및 봉제소공인 제품 판매"], ["27", "성북패션공동브랜드URZ[유어즈]", "사업 홍보 및 성북패션공동브랜드 제품 판매"], ["28", "한걸음 더, 구민 곁으로 ‘성북복지재단’", "성북복지재단 주요 사업 홍보와 간단한 게임"], ["29", "장위종합사회복지관", "이주민과 선주민이 이웃되는 이야기 (이민자씨의 동네 정착기)"], ["30", "장곡 할로윈 마켓", "장곡시장에서 펼치는 할로윈 컨셉의 디저트와 다양한 소품, 이벤트까지!"], ["31", "한예종 가온누리 글로벌부스", "여러 나라의 대표적인 물품과 디저트 전시 및 판매"], ["32", "매그놀리아 스토리 × 돌곶이생활예술문화센터", "돌곶이생활예술문화센터에서 활동하는 청바지 업사이클링 동아리의 작품 판매"], ["33", "성북발달장애인평생교육센터", "주요 사업 홍보 및 참여자 작품 전시와 판매"], ["34", "성북구가족센터", "다양한 문화에 대한 차별과 편견해소 및 응원 캠페인 (달라서 따뜻한 세상)"], ["35", "성북구보건소·정신건강복지센터", "마음건강 상담부터 회복까지, 건강한 일상을 함께하는 정신건강 캠페인"]]}};
+    var colors={food:'p',kids:'p',hand:'o',karts:'y',land:'b',local:'v'};
+    var box=document.getElementById('mapDetail'), btns=document.querySelectorAll('.zone');
+    function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+    function show(k){
+      var z=Z[k]; if(!z) return;
+      var h='<h3>'+esc(z.t)+'</h3><p class="md">'+esc(z.d)+'</p>';
+      if(z.i.length){ h+='<ul>'+z.i.map(function(r){var c=(k==='land'&&r[0]==='D')?'r':colors[k]; return '<li><i class="dot '+c+'">'+esc(r[0])+'</i><div><b>'+esc(r[1])+'</b><span>'+esc(r[2])+'</span></div></li>';}).join('')+'</ul>'; }
+      if(z.n) h+='<p class="mn">'+esc(z.n)+'</p>';
+      box.innerHTML=h;
+      btns.forEach(function(b){b.classList.toggle('active', b.dataset.z===k);});
+    }
+    btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.z);});});
+    show('food');
+  })();
 </script>
 
 </body>
